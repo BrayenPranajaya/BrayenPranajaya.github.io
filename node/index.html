@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showroom Mobil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/modal.css">
+</head>
+<body>
+<!-- Header dan Navigasi -->
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#hero"><img src="asset/NODE.png" alt="Logo" class="logo-img"></a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            &#9776; <!-- Unicode for hamburger icon -->
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#">Katalog</a></li>
+            <li><a href="#" class="login-link">Masuk</a></li>
+            <li><a href="#" class="register-link">Daftar</a></li>
+        </ul>
+        <div class="search-toggle" onclick="toggleSearch()">
+            <i class="fas fa-search"></i> <!-- Font Awesome search icon -->
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search..." aria-label="Search">
+            <i class="fas fa-search search-icon"></i> <!-- Font Awesome search icon -->
+        </div>
+    </nav>
+</header>
+
+
+    <!-- Hero Section -->
+     <section id="hero">
+         <div class="hero" id="hero">
+             <div class="overlay"></div>
+             <div class="hero-slider">
+                 <div class="slide active" style="background-image: url('asset/Shelby.jpg');"></div>
+                 <div class="slide" style="background-image: url('asset/1967-ford-mustang.jpeg');"></div>
+                 <div class="slide" style="background-image: url('asset/Volkswagen.jpg');"></div>
+                 <div class="slide" style="background-image: url('asset/Mercedes-Benz 300SL Gullwing (1954).jpeg');"></div>
+                 <div class="slide" style="background-image: url('asset/Ferrari 250 GTO (1962).jpg');"></div>
+                 <div class="slide" style="background-image: url('asset/Shelby.jpg');"></div>
+                 <div class="slide" style="background-image: url('asset/Porsche 911 (1964).jpg');"></div>
+             </div>
+             <div class="hero-text">
+                 <h1>Selamat Datang Mas Bro</h1>
+                 <p>Discover our amazing catalog of cars</p>
+             </div>
+         </div>
+     </section>
+
+    <!-- Modals -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>MASUK</h2>
+            <div class="input-box">
+                <label>Nama Pengguna</label>
+                <i class="fas fa-user"></i>
+                <input type="text" required>
+            </div>
+            <div class="input-box">
+                <label>Kata Sandi</label>
+                <i class="fas fa-lock"></i>
+                <input type="password" required>
+            </div>
+            <button class="btn">MASUK</button>
+            <p>Belum punya akun? <a href="#" id="showRegister">Daftar disini</a></p>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>DAFTAR AKUN</h2>
+            <div class="input-box">
+                <label>Nama Pengguna</label>
+                <i class="fas fa-user"></i>
+                <input type="text" required>
+            </div>
+            <div class="input-box">
+                <label>Email</label>
+                <i class="fas fa-envelope"></i>
+                <input type="email" required>
+            </div>
+            <div class="input-box">
+                <label>Kata Sandi</label>
+                <i class="fas fa-lock"></i>
+                <input type="password" required>
+            </div>
+            <button class="btn">DAFTAR</button>
+            <p>Sudah Punya Akun? <a href="#" id="showLogin">Masuk</a></p>
+        </div>
+    </div>
+       <!-- Highlight Section -->
+       <section class="highlight" id="highlight">
+        <h2>Highlighted Cars</h2>
+        <div class="highlight-slider">
+            <div class="highlight-slide active" style="background-image: url('asset/Chevrolet Camaro (1969).jpeg');"></div>
+            <div class="highlight-slide" style="background-image: url('asset/Jaguar E-Type (1961).jpg');"></div>
+            <div class="highlight-slide" style="background-image: url('asset/Mercedes-Benz 300SL Gullwing (1954).jpeg');"></div>
+            <button class="prev" onclick="changeHighlightSlide(-1)">&#10094;</button>
+            <button class="next" onclick="changeHighlightSlide(1)">&#10095;</button>
+        </div>
+        <div class="highlight-text">
+            <p>Explore more about our featured cars.</p>
+            <button class="button-primary">Read More</button>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <h2>Our Team</h2>
+        <div class="team-cards">
+            <div class="card">
+                <img src="asset/LOGO.png" alt="Team Member">
+                <div class="card-info">
+                    <h3>Member 1</h3>
+                </div>
+            </div>
+            <div class="card">
+                <img src="asset/LOGO.png" alt="Team Member">
+                <div class="card-info">
+                    <h3>Member 2</h3>
+                </div>
+            </div>
+            <div class="card">
+                <img src="asset/LOGO.png" alt="Team Member">
+                <div class="card-info">
+                    <h3>Member 3</h3>
+                </div>
+            </div>
+            <div class="card">
+                <img src="asset/LOGO.png" alt="Team Member">
+                <div class="card-info">
+                    <h3>Member 4</h3>
+                </div>
+            </div>
+                        <div class="card">
+                <img src="asset/LOGO.png" alt="Team Member">
+                <div class="card-info">
+                    <h3>Member 5</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">
+            <a href="#hero"><img src="asset/NODE.png" alt="Footer Logo" class="footer-logo-img"></a>
+        </div>
+        <div class="social-icons">
+            <a href="https://wa.me/+6283893691624"><img src="asset/whatsapp.png" alt="WhatsApp"></a>
+            <a href="https://www.instagram.com/brayenp_/"><img src="asset/instagram.png" alt="Instagram"></a>
+            <a href="https://www.facebook.com/brayen.kun"><img src="asset/facebook.png" alt="Facebook"></a>
+        </div>
+        <div class="footer-links">
+            <a href="#hero" >Beranda</a>
+            <a href="#highlight">Highlight</a>
+            <a href="#team">Our Team</a>
+        </div>
+        <div class="other">
+            <p>About Us | Contact Us</p>
+        </div>
+        <p>&copy; 2024 Showroom Mobil</p>
+    </footer>
+
+    <script src="java/script.js"></script>
+</body>
+</html>

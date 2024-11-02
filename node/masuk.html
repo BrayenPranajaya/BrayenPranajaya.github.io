@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masuk</title>
+    <link rel="stylesheet" href="style/masuk&daftar.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo">
+                <img src="asset/NODE.png" alt="Logo" class="logo-img">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="#">Katalog</a></li>
+                <li><a href="masuk.html">Masuk</a></li>
+                <li><a href="daftar.html">Daftar</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Cari mobil...">
+                <button onclick="showPopup()"><i class="fas fa-search"></i></button>
+            </div>
+        </nav>
+    
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <h2>MASUK</h2>
+            <form action="#">
+                <div class="input-box">
+                    <label for="username">Nama Pengguna</label>
+                    <i class='bx bxs-user'></i>
+                    <input type="text" id="username" placeholder="Masukkan Nama Pengguna" required>
+                </div>
+                <div class="input-box">
+                    <label for="password">Kata Sandi</label>
+                    <i class='bx bxs-lock'></i>
+                    <input type="password" id="password" placeholder="Masukkan Kata Sandi" required>
+                </div>
+                <button class="btn">MASUK</button>
+            </form>
+            <p>Belum punya akun? <a href="daftar.html">Daftar disini</a></p>
+        </div>
+    </div>

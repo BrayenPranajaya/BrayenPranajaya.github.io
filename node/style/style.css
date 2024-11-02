@@ -1,0 +1,430 @@
+/* Color Palette */
+:root {
+    --dark: #181C14;
+    --medium-dark: #3C3D37;
+    --teal: #697565;
+    --light-teal: #ECDFCC;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark);
+    color: var(--light-teal);
+    overflow-x: hidden;
+    
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: var(--dark);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+}
+
+.logo-img {
+    height: 40px; /* Adjust based on your layout */
+    width: auto;
+    border-radius: 50%;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: var(--light-teal);
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Hamburger Icon for Mobile */
+.hamburger {
+    display: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: var(--light-teal);
+}
+
+/* Hide nav-links by default on smaller screens */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 5%;
+        background-color: var(--medium-dark);
+        width: 90%;
+        border-radius: 8px;
+        padding: 20px 0;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    /* When nav-links are active (menu open) */
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+.nav-links li a:hover {
+    color: var(--teal);
+}
+
+/* Search bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    position: relative; /* Added for absolute positioning of icon */
+    margin-left: 20px; /* Adjust as needed */
+    transition: max-height 0.3s ease; /* Untuk animasi jika diperlukan */
+}
+
+.search-bar input {
+    padding: 10px;
+    border: 1px solid var(--light-teal);
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
+    margin-right: 5px; /* Space between input and icon */
+    background-color: white;
+}
+
+.search-bar input:focus {
+    border-color: var(--teal);
+}
+
+.search-bar .search-icon {
+    position: absolute; /* Positioning the icon inside the search bar */
+    right: 10px; /* Distance from the right side */
+    color: var(--teal); /* Match icon color with theme */
+    cursor: pointer; /* Change cursor on hover */
+}
+
+.search-bar .search-icon:hover {
+    color: darken(var(--teal), 10%); /* Darken the color on hover */
+}
+
+/* Search toggle styles */
+.search-toggle {
+    cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
+}
+
+/* Mobile-specific Search Bar Styles */
+@media (max-width: 768px) {
+    .search-bar {
+        display: none; /* Initially hidden */
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Adjust according to your navbar height */
+        left: 0;
+        padding: 10px;
+        background-color: var(--medium-dark);
+        z-index: 15;
+        border-radius: 8px;
+    }
+
+    .search-bar.active {
+        display: flex; /* Show when active */
+    }
+
+    /* Optionally hide search toggle icon when search bar is open */
+    .search-toggle.active {
+        display: none; /* Hide the search icon if needed */
+    }
+
+    .search-bar input {
+        flex: 1; /* Ensure the input takes available space */
+        padding: 8px; /* Adjust padding for mobile */
+        margin-right: 8px; /* Space for button if needed */
+    }
+
+    .search-bar button {
+        padding: 8px 10px; /* Button padding if you have a button */
+    }
+}
+
+/* Popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+
+.popup-content {
+    background-color: var(--medium-dark);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+}
+
+.close {
+    color: var(--light-teal);
+    font-size: 1.5em;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--light-teal);
+    background-color: var(--dark);
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1;
+}
+
+.hero-slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 16px;
+    color: var(--light-teal);
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.3s;
+    z-index: 2;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+/* Highlight Section */
+.highlight {
+    padding: 100px 5% 50px;
+    text-align: center;
+}
+
+.highlight-slider {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.highlight-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.highlight-slide.active {
+    opacity: 1;
+}
+
+.highlight-text p {
+    font-size: 1em;
+    color: var(--teal);
+}
+
+.button-primary {
+    background-color: var(--teal);
+    color: var(--light-teal);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-primary:hover {
+    background-color: var(--light-teal);
+    color: var(--dark);
+}
+
+/* Team Section */
+.team {
+    padding: 100px 5%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team h2 {
+    color: var(--light-teal);
+    margin-bottom: 30px;
+}
+
+.team-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.card {
+    flex: 1 1 calc(50% - 20px); /* Set each card to occupy 50% for the first row */
+    max-width: 48%; /* Slightly less than 50% for responsive spacing */
+    background-color: var(--medium-dark);
+    padding: 20px;
+    border-radius: 8px;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.card img {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.card-info h3 {
+    color: var(--light-teal);
+}
+
+/* For screens larger than 768px, switch to a 3-card row for the second row */
+@media (min-width: 768px) {
+    .team-cards .card:nth-child(n+3) {
+        flex: 1 1 calc(33.333% - 20px); /* Set each card to occupy 33.33% */
+    }
+}
+
+/* Footer */
+.footer {
+    background-color: var(--dark);
+    padding: 20px 5%;
+    text-align: center;
+    color: var(--light-teal);
+}
+
+.footer-logo img {
+    height: 40px; /* Adjust based on your layout */
+    width: auto;
+    border-radius: 50%;
+}
+
+.social-icons {
+    margin: 10px 0;
+}
+
+.social-icons img {
+    width: 30px;
+    margin: 0 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+
+    .nav-links li {
+        margin-bottom: 5px;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .highlight {
+        padding: 50px 2%;
+    }
+}
